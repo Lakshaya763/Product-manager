@@ -8,6 +8,8 @@ const HomePage = () => {
 	const { fetchProducts, products } = useProductStore();
 
 	useEffect(() => {
+		console.log("🔄 HomePage mounted. Calling fetchProducts...");
+	fetchProducts();
 		fetchProducts();
 	}, [fetchProducts]);
 	console.log("products", products);

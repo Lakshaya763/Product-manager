@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
 	origin: "https://product-manager-vert.vercel.app", // ✅ allow your Vercel frontend
 	methods: ["GET", "POST", "PUT", "DELETE"],
+	credentials:true
 }));
 app.get("/", (req, res) => {
 	res.send("✅ Product Manager API is running.");
