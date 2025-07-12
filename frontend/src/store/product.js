@@ -1,6 +1,7 @@
 import { create } from "zustand";
+
 const API = import.meta.env.VITE_API_URL;
-await fetch(`${API}/products`);
+
 export const useProductStore = create((set) => ({
 	products: [],
 	setProducts: (products) => set({ products }),
