@@ -13,7 +13,9 @@ app.use(cors({
 	origin: "https://product-manager-vert.vercel.app", // ✅ allow your Vercel frontend
 	methods: ["GET", "POST", "PUT", "DELETE"],
 }));
-
+app.get("/", (req, res) => {
+	res.send("✅ Product Manager API is running.");
+});
 app.use(express.json());
 
 // Routes
