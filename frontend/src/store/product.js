@@ -1,6 +1,4 @@
 import { create } from "zustand";
-
-// ✅ Use environment variable for backend base URL
 const API = import.meta.env.VITE_API_URL;
 
 export const useProductStore = create((set) => ({
