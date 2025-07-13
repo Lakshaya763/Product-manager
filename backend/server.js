@@ -10,7 +10,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-	origin: "https://product-manager-vert.vercel.app",
+	origin:[ "https://product-manager-vert.vercel.app",
+		  "https://product-manager-8uedf4uw8-lakshaya-pants-projects.vercel.app"
+	],
 	methods: ["GET", "POST", "PUT", "DELETE"],
 	credentials:true
 }));
