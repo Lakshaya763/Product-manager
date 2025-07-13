@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-	origin: "https://product-manager-vert.vercel.app", // ✅ allow your Vercel frontend
+	origin: "https://product-manager-vert.vercel.app",
 	methods: ["GET", "POST", "PUT", "DELETE"],
 	credentials:true
 }));
