@@ -18,8 +18,8 @@ app.use(cors({
   origin: function (origin, callback) {
     if (
       !origin ||
-      allowedOrigins.includes(origin) ||
-      origin.endsWith(".lakshaya-pants-projects.vercel.app") // your preview domains
+      origin === "https://product-manager-vert.vercel.app" || // Production domain
+      origin.endsWith(".lakshaya-pants-projects.vercel.app")  // All preview deployments
     ) {
       callback(null, true);
     } else {
