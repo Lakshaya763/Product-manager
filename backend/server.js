@@ -16,21 +16,18 @@ app.use(cors({
   origin: function (origin, callback) {
     console.log("🌐 Incoming request from:", origin);
 
-    if (!origin) return callback(null, true); // Allow Postman, curl, mobile apps
+    // Allow local tools (Postman, curl, etc.)
+    if (!origin) return callback(null, true);
 
-    if (
-      origin === "https://product-manager-vert.vercel.app" || // Production domain
-      origin.endsWith(".lakshaya-pants-projects.vercel.app")  // Preview deployments
-    ) {
-      return callback(null, true);
-    }
+    // Allow all Vercel deployments under your account
+    if (origin.includes("vercel.app")) return callback(null, true);
 
+    // Deny everything else
     return callback(new Error("❌ Not allowed by CORS: " + origin));
   },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
-
 // ✅ Body parser middleware
 app.use(express.json());
 
