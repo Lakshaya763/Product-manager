@@ -9,26 +9,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ Allow only your production and preview domains on Vercel
-const allowedOrigins = [
-  "https://product-manager-vert.vercel.app", // Production
-];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (
-      !origin ||
-      origin === "https://product-manager-vert.vercel.app" || // Production domain
-      origin.endsWith(".lakshaya-pants-projects.vercel.app")  // All preview deployments
-    ) {
-      callback(null, true);
-    } else {
-      callback(new Error("❌ Not allowed by CORS: " + origin));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-}));
+app.use(cors());
 
 // ✅ Body parser middleware
 app.use(express.json());
