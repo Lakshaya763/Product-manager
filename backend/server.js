@@ -10,8 +10,21 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 
-app.use(cors());
-
+app.use(cors({
+  origin: function (origin, callback) {
+    if (
+      !origin ||
+      origin === "https://product-manager-vert.vercel.app" ||
+      origin.endsWith(".lakshaya-pants-projects.vercel.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("❌ Not allowed by CORS: " + origin));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 // ✅ Body parser middleware
 app.use(express.json());
 
