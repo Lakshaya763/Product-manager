@@ -95,7 +95,9 @@ const ProductCard = ({ product }) => {
 				<Text fontWeight='bold' fontSize='xl' color={textColor} mb={4}>
 					${product.price}
 				</Text>
-
+				<Text fontSize='md' color={textColor} mb={4}>
+				Quantity: {product.quantity}
+				</Text>
 				<HStack spacing={2}>
 					<IconButton icon={<EditIcon />} onClick={onOpen} colorScheme='blue' />
 					<IconButton
@@ -126,6 +128,13 @@ const ProductCard = ({ product }) => {
 								type='number'
 								value={updatedProduct.price}
 								onChange={(e) => setUpdatedProduct({ ...updatedProduct, price: e.target.value })}
+							/>
+							<Input
+								placeholder='Quantity'
+								name='quantity'
+								type='number'
+								value={updatedProduct.quantity}
+								onChange={(e) => setUpdatedProduct({ ...updatedProduct, quantity: e.target.value })}
 							/>
 							<Input
 								placeholder='Image URL'
