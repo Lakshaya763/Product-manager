@@ -20,6 +20,7 @@ export default function ProductList() {
 						<li key={product._id}>
 							<h4>{product.name}</h4>
 							<p>₹{product.price}</p>
+							<p>Quantity:{product.quantity}</p>
 							<img src={product.image} alt={product.name} width="150" />
 						</li>
 					))}

@@ -7,6 +7,7 @@ const CreatePage = () => {
 		name: "",
 		price: "",
 		image: "",
+		quantity: "",
 	});
 	const toast = useToast();
 
@@ -29,7 +30,7 @@ const CreatePage = () => {
 				isClosable: true,
 			});
 		}
-		setNewProduct({ name: "", price: "", image: "" });
+		setNewProduct({ name: "", price: "", image: "", quantity: "" });
 	};
 
 	return (
@@ -59,6 +60,13 @@ const CreatePage = () => {
 							name='image'
 							value={newProduct.image}
 							onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
+						/>
+						<Input
+							placeholder='Quantity'
+							name='quantity'
+							type='number'
+							value={newProduct.quantity}
+							onChange={(e) => setNewProduct({ ...newProduct, quantity: e.target.value })}
 						/>
 
 						<Button colorScheme='blue' onClick={handleAddProduct} w='full'>
