@@ -16,7 +16,7 @@ A full-stack **Product Management App** built with the **MERN stack** (MongoDB, 
 
 ## 🧱 Tech Stack
 
-- **MongoDB** – NoSQL Database  
+- **MongoDB Atlas** – NoSQL Database  
 - **Express.js** – Node.js backend framework  
 - **React.js** – Frontend UI framework  
 - **Node.js** – Runtime environment  
