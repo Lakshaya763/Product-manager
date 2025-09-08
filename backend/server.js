@@ -11,21 +11,24 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ CORS setup to allow production and preview deployments
+
 app.use(cors({
   origin: function (origin, callback) {
     console.log("🌐 Incoming request from:", origin);
 
-    // Allow local tools (Postman, curl, etc.)
+    // Allow requests without origin (Postman, curl)
     if (!origin) return callback(null, true);
 
-    // Allow all Vercel deployments under your account
+    // Allow local development
+    if (origin.includes("localhost")) return callback(null, true);
+
+    // Allow deployed frontend on Vercel
     if (origin.includes("vercel.app")) return callback(null, true);
 
-    // Deny everything else
+    // Deny all others
     return callback(new Error("❌ Not allowed by CORS: " + origin));
   },
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // include OPTIONS for preflight
   credentials: true,
 }));
 // ✅ Body parser middleware
